@@ -550,15 +550,29 @@
             }, 300);
         }
 
-        form.addEventListener('submit', (e) => {
-            e.preventDefault(); // Evitamos recarga. Aquí tu CRM (ej. script de Hubspot) tomaría los datos.
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault(); // Evitamos recarga.
             
-            // Simulación de envío a CRM
-            // const formData = new FormData(form);
-            // fetch('TU_WEBHOOK_DEL_CRM', { method: 'POST', body: formData });
+            // 1. Recopilamos los datos del formulario
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
             
+            // 2. Enviamos los datos al webhook de Make
+            try {
+                await fetch('https://hook.us2.make.com/4m8jk1r25to8gw2eub8khfq1ysmff5co', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+            } catch (error) {
+                console.error('Error al enviar los datos a Make:', error);
+            }
+            
+            // 3. Mostramos el Pop-up y limpiamos el formulario
             showPopup();
-            form.reset(); // Limpia el form
+            form.reset();
         });
 
         closeBtn.addEventListener('click', hidePopup);
