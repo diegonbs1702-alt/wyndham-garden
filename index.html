@@ -14,6 +14,24 @@
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '391128485730112');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=391128485730112&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
     <style>
         /* Custom Styles & Native Animations for Speed */
         :root {
@@ -71,46 +89,96 @@
 <body class="font-sans text-gray-800 bg-gray-50 min-h-screen selection:bg-[#f59e0b] selection:text-[#114363]">
 
     <!-- 1. HERO SECTION (Above the Fold) -->
-    <section class="relative bg-[#114363] text-white overflow-hidden">
+    <section id="hero-section" class="relative bg-[#114363] text-white overflow-hidden">
         <div class="absolute inset-0 opacity-20 bg-[url('render-wyndham.jpg')] bg-cover bg-center mix-blend-overlay" fetchpriority="high"></div>
         <div class="absolute inset-0 bg-gradient-to-b from-[#114363]/90 to-[#114363]"></div>
         
-        <!-- Logo Discreto Superior -->
-        <div class="absolute top-0 left-0 w-full flex justify-start pt-8 px-4 sm:px-8 lg:px-12 z-20">
+        <!-- Logos Superior -->
+        <div class="absolute top-0 left-0 w-full flex justify-between items-center pt-8 px-4 sm:px-8 lg:px-12 z-20">
             <img src="logo-wyndham.png" alt="Wyndham Garden Logo" class="h-16 sm:h-20 object-contain opacity-90 hover:opacity-100 transition-opacity" />
+            <img src="logo-cerva.png" alt="CERVA Inversiones Logo" class="h-16 sm:h-20 object-contain opacity-90 hover:opacity-100 transition-opacity" />
         </div>
         
-        <div class="relative max-w-6xl mx-auto px-4 pt-32 pb-32 sm:px-6 lg:px-8 flex flex-col items-center text-center">
-            <div class="fade-in-section mb-6">
-                <span class="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-semibold bg-white/10 text-[#f59e0b] uppercase tracking-wider border border-[#f59e0b]/30">
-                    <i data-lucide="star" class="w-4 h-4 mr-2 fill-current"></i> 
-                    CERVA Inversiones Presenta
-                </span>
-            </div>
-            
-            <h1 class="fade-in-section text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
-                Invierta en el Hotel con Mayor <br class="hidden sm:block"/>
-                <span class="text-[#f59e0b]">Demanda Proyectada de Mérida</span>
-            </h1>
-            
-            <p class="fade-in-section mt-4 text-xl sm:text-2xl max-w-3xl text-gray-300 font-light mb-10">
-                Obtenga rentas mensuales de por vida con el respaldo de la marca global Wyndham. Inicie con solo el <strong class="text-white">15% de enganche</strong> y <strong class="text-white">48 meses sin intereses</strong>. $0 esfuerzo operativo.
-            </p>
-            
-            <div class="fade-in-section flex flex-col sm:flex-row gap-4 w-full justify-center">
-                <a href="#calculator-section" class="flex items-center justify-center px-8 py-4 text-lg font-bold rounded-lg text-[#114363] bg-[#f59e0b] hover:bg-yellow-400 transition-all shadow-lg hover:shadow-yellow-500/30 transform hover:-translate-y-1">
-                    Calcula tus rendimientos
-                    <i data-lucide="trending-up" class="ml-2 w-5 h-5"></i>
-                </a>
-                <a href="#contact-section" class="flex items-center justify-center px-8 py-4 text-lg font-bold rounded-lg text-white border-2 border-white/20 hover:bg-white/10 transition-all">
-                    Contactar a un Asesor
-                    <i data-lucide="chevron-right" class="ml-2 w-5 h-5"></i>
-                </a>
-            </div>
+        <div class="relative max-w-7xl mx-auto px-4 pt-32 pb-24 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Text Column (left) -->
+                <div class="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left">
+                    <div class="fade-in-section mb-6">
+                        <span class="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-semibold bg-white/10 text-[#f59e0b] uppercase tracking-wider border border-[#f59e0b]/30">
+                            <i data-lucide="map-pin" class="w-4 h-4 mr-2 fill-current"></i> 
+                            A Pasos del Único Consulado Americano al sur de México
+                        </span>
+                    </div>
+                    
+                    <h1 class="fade-in-section text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
+                        Invierta en el Hotel con Mayor <br class="hidden sm:block"/>
+                        <span class="text-[#f59e0b]">Demanda Proyectada de Mérida</span>
+                    </h1>
+                    
+                    <p class="fade-in-section mt-4 text-lg sm:text-xl max-w-2xl text-gray-300 font-light mb-10">
+                        Obtenga rentas mensuales de por vida con el respaldo de la marca global Wyndham. Inicie con solo el <strong class="text-white">15% de enganche</strong> y <strong class="text-white">48 meses sin intereses</strong>.
+                    </p>
+                    
+                    <div class="fade-in-section flex flex-col sm:flex-row gap-4 w-full justify-center lg:justify-start">
+                        <a href="#calculator-section" class="flex items-center justify-center px-8 py-4 text-lg font-bold rounded-lg text-[#114363] bg-[#f59e0b] hover:bg-yellow-400 transition-all shadow-lg hover:shadow-yellow-500/30 transform hover:-translate-y-1">
+                            Calcula tus rendimientos
+                            <i data-lucide="trending-up" class="ml-2 w-5 h-5"></i>
+                        </a>
+                    </div>
 
-            <div class="fade-in-section mt-12 flex items-center justify-center space-x-6 text-sm text-gray-400">
-                <div class="flex items-center"><i data-lucide="shield-check" class="w-5 h-5 mr-2 text-[#f59e0b]"></i> Contrato a 10 años</div>
-                <div class="flex items-center"><i data-lucide="clock" class="w-5 h-5 mr-2 text-[#f59e0b]"></i> Preventa Fase 1</div>
+                    <div class="fade-in-section mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-sm text-gray-400">
+                        <div class="flex items-center"><i data-lucide="shield-check" class="w-5 h-5 mr-2 text-[#f59e0b]"></i> Protegido por Fideicomiso</div>
+                        <div class="flex items-center"><i data-lucide="badge-check" class="w-5 h-5 mr-2 text-[#f59e0b]"></i> Inversión en Preventa</div>
+                    </div>
+                </div>
+
+                <!-- Form Column (right) -->
+                <div class="lg:col-span-5 relative z-10 w-full max-w-md mx-auto mt-12 lg:mt-0">
+                    <form id="lead-form" class="fade-in-section bg-white p-6 sm:p-8 rounded-3xl shadow-2xl text-left">
+                        <div class="text-center mb-6">
+                            <h3 class="text-2xl font-black text-[#114363]">¡Cotice su inversión!</h3>
+                            <p class="text-sm text-gray-500 mt-1">Déjenos sus datos para recibir asesoría</p>
+                        </div>
+                        
+                        <!-- CAMPO OCULTO EVENT ID PARA META ADS CAPI DEDUPLICATION -->
+                        <input type="hidden" name="eventId" id="event-id" value="">
+                        
+                        <div class="mb-4">
+                            <label class="block text-sm font-bold text-gray-700 mb-2">Nombre Completo</label>
+                            <input type="text" name="nombre" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#114363] focus:border-transparent outline-none text-gray-800" placeholder="Ej. Carlos Mendoza" />
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-sm font-bold text-gray-700 mb-2">Teléfono (WhatsApp)</label>
+                            <div class="flex w-full rounded-lg border border-gray-300 focus-within:ring-2 focus-within:ring-[#114363] focus-within:border-transparent bg-white overflow-hidden">
+                                <span class="inline-flex items-center px-4 border-r border-gray-300 bg-gray-50 text-gray-600 font-bold">+52</span>
+                                <input type="tel" name="telefono_raw" required class="w-full px-4 py-3 outline-none text-gray-800" placeholder="123 456 7890" pattern="[0-9 ]+" />
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-sm font-bold text-gray-700 mb-2">Correo Electrónico</label>
+                            <input type="email" name="email" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#114363] focus:border-transparent outline-none text-gray-800" placeholder="carlos@correo.com" />
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-sm font-bold text-gray-700 mb-2">¿Cuál es tu presupuesto de inversión?</label>
+                            <!-- El 'value' ahora es puramente numérico para el algoritmo de Meta y Make -->
+                            <select name="presupuesto" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#114363] focus:border-transparent outline-none bg-white text-gray-800">
+                                <option value="">Seleccione una opción</option>
+                                <option value="240000">1 acción ($240,000 MXN)</option>
+                                <option value="480000">2 acciones ($480,000 MXN)</option>
+                                <option value="960000">3 a 5 acc. ($720k - $1.2 M)</option>
+                                <option value="1500000">Más de 5 (+$1.2M)</option>
+                                <option value="0">Aún evaluando</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="w-full bg-[#f59e0b] hover:bg-yellow-400 text-[#114363] font-black text-xl py-4 rounded-xl shadow-lg transition-colors flex items-center justify-center">
+                            Contactar a un Asesor <i data-lucide="arrow-right" class="ml-2 w-6 h-6"></i>
+                        </button>
+                        <p class="text-xs text-center text-gray-500 mt-4">
+                            Sus datos serán integrados de manera segura a nuestro CRM. Cero fricción, cero llamadas de spam.
+                        </p>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
@@ -120,7 +188,7 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 <div class="fade-in-section relative rounded-2xl overflow-hidden shadow-2xl group">
-                    <img src="render-wyndham.jpg" loading="lazy" alt="Ubicación Mérida" class="w-full h-[500px] object-cover transition-transform duration-700 group-hover:scale-105" />
+                    <img src="ubicacion.jpg" loading="lazy" alt="Ubicación Mérida" class="w-full h-[500px] object-cover transition-transform duration-700 group-hover:scale-105" />
                     <div class="absolute inset-0 bg-gradient-to-t from-[#114363]/90 to-transparent flex flex-col justify-end p-8">
                         <div class="flex items-center text-[#f59e0b] mb-2">
                             <i data-lucide="map-pin" class="w-6 h-6 mr-2"></i>
@@ -153,7 +221,7 @@
                                 <i data-lucide="briefcase" class="w-6 h-6"></i>
                             </div>
                             <div class="ml-4">
-                                <h4 class="text-xl font-bold text-gray-900">Corredor Vía Montejo & Plaza Harbor</h4>
+                                <h4 class="text-xl font-bold text-gray-900">En la Nueva Zona Corporativa de Mérida</h4>
                                 <p class="mt-1 text-gray-500">A pasos del centro corporativo y comercial más exclusivo del sureste mexicano.</p>
                             </div>
                         </li>
@@ -241,7 +309,7 @@
                 </div>
 
                 <div class="text-center pt-4 border-t border-gray-100">
-                    <a href="#contact-section" class="inline-flex items-center justify-center px-8 py-4 text-lg font-bold rounded-lg text-white bg-[#114363] hover:bg-blue-900 transition-all shadow-lg hover:shadow-blue-900/30 transform hover:-translate-y-1 w-full sm:w-auto">
+                    <a href="#hero-section" class="inline-flex items-center justify-center px-8 py-4 text-lg font-bold rounded-lg text-white bg-[#114363] hover:bg-blue-900 transition-all shadow-lg hover:shadow-blue-900/30 transform hover:-translate-y-1 w-full sm:w-auto">
                         Deseo Invertir Ahora
                         <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i>
                     </a>
@@ -304,7 +372,7 @@
                                 <div class="flex-shrink-0 w-8 h-8 rounded-full bg-green-100 flex items-center justify-center mr-4">
                                     <i data-lucide="check-circle" class="w-5 h-5 text-green-600"></i>
                                 </div>
-                                <span class="text-lg font-bold text-gray-800">Inversión 100% heredable y de libre venta si decide liquidar su posición</span>
+                                <span class="text-lg font-bold text-gray-800">Inversión 100% heredable y de libre venta</span>
                             </div>
                             <span class="hidden sm:inline-block px-3 py-1 bg-gray-100 text-gray-600 text-sm font-bold rounded-full">Flexibilidad</span>
                         </li>
@@ -351,7 +419,7 @@
                     </div>
                 </div>
                 <div class="fade-in-section group relative h-80 rounded-2xl overflow-hidden cursor-pointer shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&q=80" loading="lazy" alt="Restaurante Signature" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                    <img src="restaurante-wyndham.jpeg" loading="lazy" alt="Restaurante Signature" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-6">
                         <h4 class="text-white font-bold text-xl">Restaurante Signature</h4>
                     </div>
@@ -393,49 +461,16 @@
             </h2>
             
             <p class="fade-in-section text-xl text-[#114363]/80 font-medium mb-12">
-                No pierda la oportunidad de asegurar patrimonio generacional. Déjenos sus datos y un asesor especializado de CERVA Inversiones se pondrá en contacto con usted a la brevedad.
+                No pierda la oportunidad de asegurar patrimonio generacional. Agende una presentación privada con un asesor especializado de CERVA Inversiones.
             </p>
             
-            <!-- FORMULARIO DE CONTACTO -->
-            <form id="lead-form" class="fade-in-section bg-white p-8 rounded-3xl shadow-2xl max-w-2xl mx-auto text-left">
-                <!-- CAMPO OCULTO EVENT ID PARA META ADS CAPI DEDUPLICATION -->
-                <input type="hidden" name="eventId" id="event-id" value="">
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                    <div>
-                        <label class="block text-sm font-bold text-gray-700 mb-2">Nombre Completo</label>
-                        <input type="text" name="nombre" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#114363] focus:border-transparent outline-none" placeholder="Ej. Carlos Mendoza" />
-                    </div>
-                    <div>
-                        <label class="block text-sm font-bold text-gray-700 mb-2">Teléfono (WhatsApp)</label>
-                        <div class="flex w-full rounded-lg border border-gray-300 focus-within:ring-2 focus-within:ring-[#114363] focus-within:border-transparent bg-white overflow-hidden">
-                            <span class="inline-flex items-center px-4 border-r border-gray-300 bg-gray-50 text-gray-600 font-bold">
-                                +52
-                            </span>
-                            <input type="tel" name="telefono_raw" required class="w-full px-4 py-3 outline-none" placeholder="123 456 7890" pattern="[0-9 ]+" />
-                        </div>
-                    </div>
-                </div>
-                <div class="mb-6">
-                    <label class="block text-sm font-bold text-gray-700 mb-2">Correo Electrónico</label>
-                    <input type="email" name="email" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#114363] focus:border-transparent outline-none" placeholder="carlos@correo.com" />
-                </div>
-                <div class="mb-8">
-                    <label class="block text-sm font-bold text-gray-700 mb-2">¿Cuenta con el capital para el 15% de enganche? (Aprox. $36,000 MXN por acción)</label>
-                    <select name="enganche" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#114363] focus:border-transparent outline-none bg-white">
-                        <option value="">Seleccione una opción</option>
-                        <option value="si">Sí, cuento con el enganche</option>
-                        <option value="no">No, busco opciones de financiamiento</option>
-                        <option value="duda">Tengo dudas sobre los métodos de pago</option>
-                    </select>
-                </div>
-                <button type="submit" class="w-full bg-[#114363] hover:bg-blue-900 text-white font-bold text-xl py-4 rounded-xl shadow-lg transition-colors flex items-center justify-center">
-                    Contactar a un Asesor <i data-lucide="arrow-right" class="ml-2 w-6 h-6"></i>
-                </button>
-                <p class="text-xs text-center text-gray-500 mt-4">
-                    Sus datos serán integrados de manera segura a nuestro CRM. Cero fricción, cero llamadas de spam.
-                </p>
-            </form>
+            <!-- BOTÓN PARA SUBIR AL FORMULARIO EN LUGAR DE REPETIRLO -->
+            <div class="fade-in-section text-center">
+                <a href="#hero-section" class="inline-flex items-center justify-center px-10 py-5 text-xl font-black rounded-xl text-white bg-[#114363] hover:bg-blue-900 transition-all shadow-2xl hover:shadow-blue-900/40 transform hover:-translate-y-2">
+                    Completar mi registro ahora
+                    <i data-lucide="arrow-up" class="ml-3 w-6 h-6"></i>
+                </a>
+            </div>
 
         </div>
     </section>
@@ -556,6 +591,13 @@
         const closeBtn = document.getElementById('close-popup');
         const whatsappLink = document.getElementById('whatsapp-link');
 
+        // Función auxiliar para leer cookies (FBP y FBC)
+        function getCookie(name) {
+            let match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+            if (match) return match[2];
+            return null;
+        }
+
         function showPopup() {
             popup.classList.remove('hidden');
             // Timeout pequeño para que funcione la transición CSS
@@ -595,6 +637,19 @@
             } catch (err) {
                 console.warn('No se pudo obtener la IP', err);
                 data.clientIp = 'Desconocida';
+            }
+            
+            // 2.5 Capturamos Cookies de Meta (FBP y FBC)
+            data.fbp = getCookie('_fbp') || '';
+            data.fbc = getCookie('_fbc') || '';
+            
+            // Disparamos el evento Lead al Pixel del navegador con el mismo Event ID y el VALOR de inversión
+            const leadValue = parseFloat(data.presupuesto) || 0;
+            if (typeof fbq === 'function') {
+                fbq('track', 'Lead', {
+                    value: leadValue,
+                    currency: 'MXN'
+                }, { eventID: data.eventId });
             }
             
             // 3. Enviamos los datos al webhook de Make
