@@ -8,9 +8,8 @@
     <!-- Speed Optimization: Preload Hero Image -->
     <link rel="preload" as="image" href="render-wyndham.jpg">
     
-    <!-- Tailwind CSS via CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
+    <link rel="stylesheet" href="estilos.css">
+
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
@@ -116,7 +115,7 @@
                     </div>
                     
                     <h1 class="fade-in-section text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
-                        Invierta en el Hotel con Mayor <br class="hidden sm:block"/>
+                        Invierta en el Hotel con Mayor
                         <span class="text-[#f59e0b]">Demanda Proyectada de Mérida</span>
                     </h1>
                     
@@ -187,7 +186,7 @@
         </div>
     </section>
 
-    <!-- 2. THE LOCATION ADVANTAGE (Revertido a fondo blanco) -->
+    <!-- 2. THE LOCATION ADVANTAGE (Fondo blanco) -->
     <section class="py-20 bg-white">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -279,8 +278,8 @@
                         <button class="scenario-btn px-6 py-3 rounded-xl font-bold border-2 transition-colors bg-transparent text-gray-500 border-gray-200 hover:border-[#114363]" data-scenario="0.11">
                             Conservador (11%)
                         </button>
-                        <button class="scenario-btn px-6 py-3 rounded-xl font-bold border-2 transition-colors bg-[#f59e0b] text-[#114363] border-[#f59e0b]" data-scenario="0.13">
-                            Medio (13%)
+                        <button class="scenario-btn px-6 py-3 rounded-xl font-bold border-2 transition-colors bg-[#f59e0b] text-[#114363] border-[#f59e0b]" data-scenario="0.14">
+                            Medio (14%)
                         </button>
                         <button class="scenario-btn px-6 py-3 rounded-xl font-bold border-2 transition-colors bg-transparent text-gray-500 border-gray-200 hover:border-green-600" data-scenario="0.16">
                             Alto (16%)
@@ -306,9 +305,9 @@
                             <span class="font-semibold">Rendimiento Anual Proyectado</span>
                         </div>
                         <div class="text-3xl font-black text-green-600">
-                            $<span id="annual-yield-display">31,200</span> <span class="text-sm font-normal text-gray-500">MXN</span>
+                            $<span id="annual-yield-display">33,600</span> <span class="text-sm font-normal text-gray-500">MXN</span>
                         </div>
-                        <p class="text-sm text-gray-500 mt-2 font-medium">Escenario del <span id="scenario-text-display">13</span>% anual estimado</p>
+                        <p class="text-sm text-gray-500 mt-2 font-medium">Escenario del <span id="scenario-text-display">14</span>% anual estimado</p>
                     </div>
                 </div>
 
@@ -322,7 +321,7 @@
         </div>
     </section>
 
-    <!-- 4. THE OFFER STACK (Revertido a fondo blanco) -->
+    <!-- 4. THE OFFER STACK (Fondo blanco) -->
     <section class="py-24 bg-white">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="fade-in-section text-center mb-16">
@@ -524,7 +523,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             const sharePrice = 240000;
             let currentShares = 1;
-            let currentScenario = 0.13;
+            let currentScenario = 0.14; // Medio es 14%
 
             const slider = document.getElementById('shares-slider');
             const sharesDisplay = document.getElementById('shares-count-display');
@@ -553,7 +552,7 @@
                 updateCalculator();
             });
 
-            // Volvemos los botones a los colores del tema claro (ya que la sección volvió a ser blanca)
+            // Volvemos los botones a los colores del tema claro
             scenarioButtons.forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     currentScenario = parseFloat(btn.getAttribute('data-scenario'));
@@ -564,7 +563,7 @@
                     
                     if(currentScenario === 0.11) {
                         btn.className = "scenario-btn px-6 py-3 rounded-xl font-bold border-2 transition-colors bg-[#114363] text-white border-[#114363]";
-                    } else if (currentScenario === 0.13) {
+                    } else if (currentScenario === 0.14) {
                         btn.className = "scenario-btn px-6 py-3 rounded-xl font-bold border-2 transition-colors bg-[#f59e0b] text-[#114363] border-[#f59e0b]";
                     } else {
                         btn.className = "scenario-btn px-6 py-3 rounded-xl font-bold border-2 transition-colors bg-green-600 text-white border-green-600";
@@ -612,12 +611,16 @@
             const formData = new FormData(form);
             const data = Object.fromEntries(formData.entries());
             
+            // Unimos el número telefónico
             if (data.telefono_raw) {
                 data.telefono = "+52 " + data.telefono_raw.trim();
                 delete data.telefono_raw; 
             }
             
+            // --- CAPTURA DE DATOS PARA META CAPI ---
             data.userAgent = navigator.userAgent;
+            data.pageUrl = window.location.href; // Captura automática de la URL de la página
+            
             try {
                 const ipResponse = await fetch('https://api.ipify.org?format=json');
                 const ipData = await ipResponse.json();
@@ -627,9 +630,11 @@
                 data.clientIp = 'Desconocida';
             }
             
+            // Leemos las cookies _fbp y _fbc que instala el pixel de Meta en el navegador
             data.fbp = getCookie('_fbp') || '';
             data.fbc = getCookie('_fbc') || '';
             
+            // Disparo del evento Lead directo al Pixel en el navegador
             const leadValue = parseFloat(data.presupuesto) || 0;
             if (typeof fbq === 'function') {
                 fbq('track', 'Lead', {
@@ -638,6 +643,7 @@
                 }, { eventID: data.eventId });
             }
             
+            // Envío del paquete completo JSON a Make
             try {
                 await fetch('https://hook.us2.make.com/4m8jk1r25to8gw2eub8khfq1ysmff5co', {
                     method: 'POST',
@@ -653,6 +659,7 @@
             showPopup();
             form.reset();
             
+            // Regeneramos Event ID para evitar duplicados si la misma persona envía otro lead sin refrescar
             const newGeneratedEventId = crypto.randomUUID ? crypto.randomUUID() : 'evt_' + Math.random().toString(36).substring(2, 15) + Date.now().toString(36);
             if (eventIdField) {
                 eventIdField.value = newGeneratedEventId;
